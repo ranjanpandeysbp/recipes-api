@@ -1,0 +1,1 @@
+1. setup branch has springboot project generated from https://start.spring.io/
