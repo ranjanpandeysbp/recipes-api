@@ -2,3 +2,5 @@
 2. create two properties file for dev and prod, set the dev profile to active by default
 3. add h2 db maven dependency and db config in the application-dev.properties file
 4. create the Ingredient and Recipe entities and establish relationship between the two
+5. created Ingredient Repository and a Startup class
+which calls the repository and save ingredients at server startup time with help Startup.java

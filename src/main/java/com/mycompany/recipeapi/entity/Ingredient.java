@@ -20,6 +20,11 @@ public class Ingredient {
 
     }
 
+    public Ingredient(String name, String description){
+        this.name = name;
+        this.description = description;
+    }
+
     public long getId() {
         return id;
     }
