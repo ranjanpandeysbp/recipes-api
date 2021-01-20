@@ -1,3 +1,4 @@
 1. setup branch has springboot project generated from https://start.spring.io/
 2. create two properties file for dev and prod, set the dev profile to active by default
 3. add h2 db maven dependency and db config in the application-dev.properties file
+4. create the Ingredient and Recipe entities and establish relationship between the two
