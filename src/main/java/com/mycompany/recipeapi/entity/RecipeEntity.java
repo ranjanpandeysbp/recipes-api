@@ -28,16 +28,16 @@ public class RecipeEntity {
     private long noOfPeople;
 
     @ManyToMany
-    private List<Ingredient> ingredientList;
+    private List<IngredientEntity> ingredientEntityList;
 
     public RecipeEntity(){}
 
-    public List<Ingredient> getIngredientList() {
-        return ingredientList;
+    public List<IngredientEntity> getIngredientEntityList() {
+        return ingredientEntityList;
     }
 
-    public void setIngredientList(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
+    public void setIngredientEntityList(List<IngredientEntity> ingredientEntityList) {
+        this.ingredientEntityList = ingredientEntityList;
     }
 
     public long getId() {

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ingredient")
-public class Ingredient {
+public class IngredientEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,11 +16,11 @@ public class Ingredient {
     @Column(name = "description")
     private String description;
 
-    public Ingredient(){
+    public IngredientEntity(){
 
     }
 
-    public Ingredient(String name, String description){
+    public IngredientEntity(String name, String description){
         this.name = name;
         this.description = description;
     }

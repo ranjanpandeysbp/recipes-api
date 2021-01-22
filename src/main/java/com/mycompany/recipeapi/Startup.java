@@ -1,6 +1,6 @@
 package com.mycompany.recipeapi;
 
-import com.mycompany.recipeapi.entity.Ingredient;
+import com.mycompany.recipeapi.entity.IngredientEntity;
 import com.mycompany.recipeapi.repository.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,25 +14,25 @@ public class Startup implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Ingredient ingredient = new Ingredient("Basmati Rice", "A fragrant, long grain rice cultivated in India");
-        ingredientRepository.save(ingredient);
+        IngredientEntity ingredientEntity = new IngredientEntity("Basmati Rice", "A fragrant, long grain rice cultivated in India");
+        ingredientRepository.save(ingredientEntity);
 
-        ingredient = new Ingredient("Chickpeas", "A high-protein, high-fiber legume that is a staple in Indian cuisine");
-        ingredientRepository.save(ingredient);
+        ingredientEntity = new IngredientEntity("Chickpeas", "A high-protein, high-fiber legume that is a staple in Indian cuisine");
+        ingredientRepository.save(ingredientEntity);
 
-        ingredient = new Ingredient("Chapati Flour", "A finely-ground, whole grain flour made from durum wheat.");
-        ingredientRepository.save(ingredient);
+        ingredientEntity = new IngredientEntity("Chapati Flour", "A finely-ground, whole grain flour made from durum wheat.");
+        ingredientRepository.save(ingredientEntity);
 
-        ingredient = new Ingredient("Chickpea Flour", "Called besan in Bengali, this high-protein, gluten-free flour made by grinding dried roasted or raw chickpeas is a staple in Indian cooking.");
-        ingredientRepository.save(ingredient);
+        ingredientEntity = new IngredientEntity("Chickpea Flour", "Called besan in Bengali, this high-protein, gluten-free flour made by grinding dried roasted or raw chickpeas is a staple in Indian cooking.");
+        ingredientRepository.save(ingredientEntity);
 
-        ingredient = new Ingredient("Jaggery", "Made from unrefined palm sugar or cane sugar and sold in hard discs or chunks");
-        ingredientRepository.save(ingredient);
+        ingredientEntity = new IngredientEntity("Jaggery", "Made from unrefined palm sugar or cane sugar and sold in hard discs or chunks");
+        ingredientRepository.save(ingredientEntity);
 
-        ingredient = new Ingredient("Kidney Beans", "A large, dark red legume, called rājmā in Hindi and Punjabi.");
-        ingredientRepository.save(ingredient);
+        ingredientEntity = new IngredientEntity("Kidney Beans", "A large, dark red legume, called rājmā in Hindi and Punjabi.");
+        ingredientRepository.save(ingredientEntity);
 
-        ingredient = new Ingredient("Rice Flour", "Finely milled white rice.");
-        ingredientRepository.save(ingredient);
+        ingredientEntity = new IngredientEntity("Rice Flour", "Finely milled white rice.");
+        ingredientRepository.save(ingredientEntity);
     }
 }

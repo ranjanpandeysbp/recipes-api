@@ -4,4 +4,4 @@
 4. create the Ingredient and Recipe entities and establish relationship between the two
 5. created Ingredient Repository and a Startup class
 which calls the repository and save ingredients at server startup time with help Startup.java
-6. Ingredient Controller and get all ingredients from database
+6. create Ingredient Controller and get all ingredients from database
