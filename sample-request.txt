@@ -1,0 +1,26 @@
+GET localhost:8080/v1/recipes
+
+POST localhost:8080/v1/recipes
+{
+	"dishType": "Vegetarian",
+	"recipeName": "Rajma Chawal",
+	"cookingInstruction": "Cook the basmati rice and seperately cook the kidney beans with herbs and spices",
+	"noOfPeople": 6,
+	"ingredientEntityList": [
+		{"id": 1},
+		{"id": 6}
+	]
+}
+
+PUT localhost:8080/v1/recipes
+{
+	"id": 9,
+	"dishType": "Vegetarian",
+	"recipeName": "Vegetarian Biryani",
+	"cookingInstruction": "Cook the basmati rice and seperately cook the chick peas with herbs and spices",
+	"noOfPeople": 7,
+	"ingredientEntityList": [
+		{"id": 1},
+		{"id": 2}
+	]
+}

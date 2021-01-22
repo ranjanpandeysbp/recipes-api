@@ -12,11 +12,14 @@ public class RecipeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
+
+    @Column(name = "recipe_name")
+    private String recipeName;
 
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern="dd-MM-yyyy HH:mm")
-    private Date creationDateTime;
+    private Date creationDateTime = new Date();
 
     @Column(name = "dish_type")
     private String dishType;
@@ -25,7 +28,7 @@ public class RecipeEntity {
     private String cookingInstruction;
 
     @Column(name = "num_of_people")
-    private long noOfPeople;
+    private Long noOfPeople;
 
     @ManyToMany
     private List<IngredientEntity> ingredientEntityList;
@@ -40,11 +43,11 @@ public class RecipeEntity {
         this.ingredientEntityList = ingredientEntityList;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,11 +75,19 @@ public class RecipeEntity {
         this.cookingInstruction = cookingInstruction;
     }
 
-    public long getNoOfPeople() {
+    public Long getNoOfPeople() {
         return noOfPeople;
     }
 
-    public void setNoOfPeople(long noOfPeople) {
+    public void setNoOfPeople(Long noOfPeople) {
         this.noOfPeople = noOfPeople;
+    }
+
+    public String getRecipeName() {
+        return recipeName;
+    }
+
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 }
