@@ -1,3 +1,6 @@
+http://localhost:8080/swagger-ui/index.html#/
+http://localhost:8080/v2/api-docs
+
 GET
 localhost:8080/v1/users/1/recipes?page=0
 localhost:8080/v1/users/1/recipes?page=0&sortOrder=ASC
