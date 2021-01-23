@@ -1,6 +1,9 @@
 package com.mycompany.recipeapi.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,10 +33,27 @@ public class RecipeEntity {
     @Column(name = "num_of_people")
     private Long noOfPeople;
 
-    @ManyToMany
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private UserEntity userEntity;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "recipe_ingredients",
+            joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private List<IngredientEntity> ingredientEntityList;
 
     public RecipeEntity(){}
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+    }
 
     public List<IngredientEntity> getIngredientEntityList() {
         return ingredientEntityList;

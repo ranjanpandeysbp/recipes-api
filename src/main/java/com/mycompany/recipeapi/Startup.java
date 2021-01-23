@@ -1,7 +1,9 @@
 package com.mycompany.recipeapi;
 
 import com.mycompany.recipeapi.entity.IngredientEntity;
+import com.mycompany.recipeapi.entity.UserEntity;
 import com.mycompany.recipeapi.repository.IngredientRepository;
+import com.mycompany.recipeapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
@@ -12,8 +14,20 @@ public class Startup implements CommandLineRunner {
     @Autowired
     private IngredientRepository ingredientRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public void run(String... args) throws Exception {
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setEmail("admin@gmail.com");
+        userEntity.setPassword("Adm!n5");
+        userEntity.setName("Administrator");
+        userEntity.setPhone("+919999999999");
+
+        userRepository.save(userEntity);
+
         IngredientEntity ingredientEntity = new IngredientEntity("Basmati Rice", "A fragrant, long grain rice cultivated in India");
         ingredientRepository.save(ingredientEntity);
 
