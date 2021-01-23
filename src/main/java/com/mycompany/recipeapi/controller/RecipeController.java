@@ -5,6 +5,8 @@ import com.mycompany.recipeapi.entity.UserEntity;
 import com.mycompany.recipeapi.exception.ResourceNotFoundException;
 import com.mycompany.recipeapi.repository.RecipeRepository;
 import com.mycompany.recipeapi.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -20,6 +22,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/v1")
 public class RecipeController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(RecipeController.class);
 
     @Autowired
     private RecipeRepository recipeRepository;
@@ -37,19 +41,23 @@ public class RecipeController {
             @RequestParam(defaultValue = "creationDateTime", value = "sortField") String sortField,
             @PathVariable("userId") Long userId){
 
+        LOGGER.debug("Entering RecipeController.getAllRecipes");
+
         Sort sort = Sort.by(Sort.Direction.fromString(sortOrder), sortField);
         Pageable pageable = PageRequest.of(page, pageSize, sort);
-
         Page<RecipeEntity> recipes = recipeRepository.findAllByUserEntityId(userId, pageable);
         if (recipes.isEmpty()){
             throw  new ResourceNotFoundException("No recipe found for user Id " + userId);
         }
+        LOGGER.debug("Exiting RecipeController.getAllRecipes");
         return new ResponseEntity<Page<RecipeEntity>>(recipes, HttpStatus.OK);
 
     }
 
     @PostMapping("/users/{userId}/recipes")
     public @ResponseBody ResponseEntity<RecipeEntity> createRecipe(@RequestBody RecipeEntity recipe, @PathVariable("userId") Long userId){
+
+        LOGGER.debug("Entering RecipeController.createRecipe");
 
         Optional<UserEntity> userEntityOpt = userRepository.findById(userId);
 
@@ -58,11 +66,14 @@ public class RecipeController {
             return recipeRepository.save(recipe);
         }).orElseThrow(()-> new ResourceNotFoundException("No user found with user Id " + userId));
 
+        LOGGER.debug("Exiting RecipeController.createRecipe");
         return new ResponseEntity<RecipeEntity>(recipeEntity, HttpStatus.CREATED);
     }
 
     @PutMapping("/users/{userId}/recipes")
     public @ResponseBody ResponseEntity<RecipeEntity> updateRecipe(@RequestBody RecipeEntity recipeEntity, @PathVariable("userId") Long userId){
+
+        LOGGER.debug("Entering RecipeController.updateRecipe");
 
         Optional<RecipeEntity> recipeEntityOpt = recipeRepository.findByIdAndUserEntityId(recipeEntity.getId(), userId);
 
@@ -83,14 +94,18 @@ public class RecipeController {
             if(!recipeEntity.getIngredientEntityList().isEmpty()){
                 recipeEntityOpt.get().setIngredientEntityList(recipeEntity.getIngredientEntityList());
             }
+            LOGGER.debug("Exiting RecipeController.updateRecipe");
             return new ResponseEntity<>(recipeRepository.save(recipeEntityOpt.get()), HttpStatus.OK);
         }else{
+            LOGGER.debug("Exiting RecipeController.updateRecipe");
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping("/users/{userId}/recipes/{recipeId}")
     public @ResponseBody ResponseEntity<Long> deleteRecipe(@PathVariable("recipeId") Long recipeId, @PathVariable("userId") Long userId){
+
+        LOGGER.debug("Entering RecipeController.deleteRecipe");
 
         Optional<RecipeEntity> recipeEntityOpt = recipeRepository.findByIdAndUserEntityId(recipeId, userId);
 
@@ -99,6 +114,7 @@ public class RecipeController {
             return true;
         }).orElseThrow(() -> new ResourceNotFoundException("No recipe found for recipe Id "+recipeId+ " user Id "+userId));
 
+        LOGGER.debug("Exiting RecipeController.deleteRecipe");
         return new ResponseEntity<Long>(recipeId, HttpStatus.NO_CONTENT);
     }
 }
