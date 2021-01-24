@@ -16,3 +16,14 @@ which calls the repository and save ingredients at server startup time with help
 15. add dependency spring-boot-starter-security and jjwt
 16. create authentication related classes
 17. login and register flow
+18. wrap the springboot app in docker image and run as container
+    create Dockerfile at root and write the related commands
+19. run mvn clean install from root directory
+20. Build the docker file from root directory with below command to generate the image
+    docker build -t recipe-api .
+21. Run the docker image with below command
+    docker run -p 8080:8080 recipe-api
+22. To stop running container, first get the container id with below command
+    docker ps -a
+    Than run below command
+    docker kill <Container Id>
