@@ -2,6 +2,7 @@ package com.mycompany.recipeapi.controller;
 
 import com.mycompany.recipeapi.entity.RecipeEntity;
 import com.mycompany.recipeapi.entity.UserEntity;
+import com.mycompany.recipeapi.exception.ResourceNotFoundException;
 import com.mycompany.recipeapi.repository.RecipeRepository;
 import com.mycompany.recipeapi.repository.UserRepository;
 import org.junit.Assert;
@@ -14,6 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Optional;
 
@@ -51,5 +53,23 @@ public class RecipeControllerTest {
 
         ResponseEntity<RecipeEntity> re = recipeController.createRecipe(recipeEntity, 1L);
         Assert.assertEquals(201, re.getStatusCodeValue());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void test_create_recipe_userNotFound(){
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("test");
+        userEntity.setEmail("test@gmail.com");
+
+        RecipeEntity recipeEntity = new RecipeEntity();
+        recipeEntity.setDishType("Veg");
+        recipeEntity.setRecipeName("Veg Biryani");
+        recipeEntity.setUserEntity(userEntity);
+
+        Mockito.when(userRepository.findById(25L)).thenReturn(Optional.empty());
+        Mockito.when(recipeRepository.save(recipeEntity)).thenReturn(recipeEntity);
+
+        ResponseEntity<RecipeEntity> re = recipeController.createRecipe(recipeEntity, 1L);
     }
 }
