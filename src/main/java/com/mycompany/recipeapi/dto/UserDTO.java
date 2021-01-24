@@ -10,6 +10,8 @@ public class UserDTO {
     private String phone;
     private String token;
 
+    public UserDTO(){}
+
     public UserDTO(String jwt, Long id, String username, String email) {
         this.token = jwt;
         this.userId = id;

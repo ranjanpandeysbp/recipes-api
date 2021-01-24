@@ -14,19 +14,8 @@ public class Startup implements CommandLineRunner {
     @Autowired
     private IngredientRepository ingredientRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Override
     public void run(String... args) throws Exception {
-
-        UserEntity userEntity = new UserEntity();
-        userEntity.setEmail("admin@gmail.com");
-        userEntity.setPassword("Adm!n5");
-        userEntity.setName("Administrator");
-        userEntity.setPhone("+919999999999");
-
-        userRepository.save(userEntity);
 
         IngredientEntity ingredientEntity = new IngredientEntity("Basmati Rice", "A fragrant, long grain rice cultivated in India");
         ingredientRepository.save(ingredientEntity);
@@ -47,6 +36,9 @@ public class Startup implements CommandLineRunner {
         ingredientRepository.save(ingredientEntity);
 
         ingredientEntity = new IngredientEntity("Rice Flour", "Finely milled white rice.");
+        ingredientRepository.save(ingredientEntity);
+
+        ingredientEntity = new IngredientEntity("Ginger Garlic Paste", "Finely grind paste of fresh ginger and garlic");
         ingredientRepository.save(ingredientEntity);
     }
 }

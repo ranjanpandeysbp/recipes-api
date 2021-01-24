@@ -14,9 +14,13 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -31,9 +35,23 @@ public class RecipeControllerTest {
     @Mock
     private UserRepository userRepository;
 
+    List<RecipeEntity> recipeEntityList = null;
+    RecipeEntity recipeEntity = null;
+
     @Before
     public void init(){
         MockitoAnnotations.initMocks(this);
+        recipeEntityList = new ArrayList<>();
+
+        recipeEntity = new RecipeEntity();
+        recipeEntity.setRecipeName("Chole Bhature");
+        recipeEntity.setDishType("Vegetarian");
+        recipeEntityList.add(recipeEntity);
+
+        recipeEntity = new RecipeEntity();
+        recipeEntity.setRecipeName("Kadhai Paneer");
+        recipeEntity.setDishType("Vegetarian");
+        recipeEntityList.add(recipeEntity);
     }
 
     @Test
@@ -72,4 +90,5 @@ public class RecipeControllerTest {
 
         ResponseEntity<RecipeEntity> re = recipeController.createRecipe(recipeEntity, 1L);
     }
+
 }
