@@ -1,5 +1,10 @@
 https://recipeapi2021.herokuapp.com/v2/api-docs/
+
+GET
 https://recipeapi2021.herokuapp.com/api/v1/auth/health
+
+GET
+https://recipeapi2021.herokuapp.com/api/v1/ingredients
 
 POST
 https://recipeapi2021.herokuapp.com/api/v1/auth/register
