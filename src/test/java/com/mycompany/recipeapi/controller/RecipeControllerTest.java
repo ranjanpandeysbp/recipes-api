@@ -17,6 +17,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
@@ -91,4 +92,23 @@ public class RecipeControllerTest {
         ResponseEntity<RecipeEntity> re = recipeController.createRecipe(recipeEntity, 1L);
     }
 
+    @Test
+    public void test_delete_recipe(){
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("Admin");
+        userEntity.setEmail("admin@gmail.com");
+
+        RecipeEntity recipeEntity = new RecipeEntity();
+        recipeEntity.setDishType("Veg");
+        recipeEntity.setRecipeName("Veg Biryani");
+        recipeEntity.setUserEntity(userEntity);
+
+        Mockito.when(recipeRepository.findByIdAndUserEntityId(1L, 2L)).thenReturn(Optional.of(recipeEntity));
+        Mockito.doNothing().when(recipeRepository).delete(recipeEntity);
+
+        ResponseEntity<Long> responseEntity = recipeController.deleteRecipe(1L, 2L);
+
+        Assert.assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
+    }
 }
