@@ -12,3 +12,7 @@ which calls the repository and save ingredients at server startup time with help
 11. swagger implementation
 12. Junit 4 with mockito implementation
 13. Write test for create recipe
+14. Implement JWT authentication
+15. add dependency spring-boot-starter-security and jjwt
+16. create authentication related classes
+17. login and register flow

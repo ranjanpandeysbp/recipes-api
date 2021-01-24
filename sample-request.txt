@@ -1,16 +1,48 @@
 http://localhost:8080/swagger-ui/index.html#/
 http://localhost:8080/v2/api-docs
 
-GET
-localhost:8080/v1/users/1/recipes?page=0
-localhost:8080/v1/users/1/recipes?page=0&sortOrder=ASC
-localhost:8080/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=noOfPeople
-localhost:8080/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=noOfPeople
-localhost:8080/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=recipeName
-localhost:8080/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=recipeName
+POST
+localhost:8080/api/v1/auth/register
+{
+	"username": "ranjan.pandey",
+	"email": "ranjan.pandey@gmail.com",
+	"name": "Ranjan Pandey",
+	"password": "P@ssword",
+	"phone": "0633638199"
+}
 
 POST
-localhost:8080/v1/users/1/recipes
+localhost:8080/api/v1/auth/login
+Request
+--------
+{
+	"username": "ranjan.pandey",
+	"email": "ranjan.pandey@gmail.com",
+	"password": "P@ssword"
+}
+Response
+---------
+{
+    "userId": 9,
+    "username": "ranjan.pandey",
+    "email": "ranjan.pandey@gmail.com",
+    "name": null,
+    "password": null,
+    "phone": null,
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5qYW4ucGFuZGV5IiwiaWF0IjoxNjExNDg4Njk0LCJleHAiOjE2MTE0ODkyOTR9.VSE74FpWxx0qtz2HdlBSyZoyTQknYhGQNWifQOmmDX1aftcD9G611MT0JDS6RwqVLHJ_v2tjo8fEXILLHVAiOA"
+}
+
+
+GET
+localhost:8080/api/v1/users/1/recipes?page=0
+localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC
+localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=noOfPeople
+localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=noOfPeople
+localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=recipeName
+localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=recipeName
+
+POST
+localhost:8080/api/v1/users/1/recipes
 {
 	"dishType": "Vegetarian",
 	"recipeName": "Veg Biryani",
@@ -23,7 +55,7 @@ localhost:8080/v1/users/1/recipes
 }
 
 PUT
-localhost:8080/v1/users/1/recipes
+localhost:8080/api/v1/users/1/recipes
 {
 	"id": 12,
 	"dishType": "Vegetarian new",

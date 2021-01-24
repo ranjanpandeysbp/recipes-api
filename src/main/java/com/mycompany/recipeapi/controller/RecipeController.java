@@ -19,8 +19,9 @@ import org.springframework.data.domain.Sort;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/api/v1")
 public class RecipeController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RecipeController.class);
