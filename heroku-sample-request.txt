@@ -81,3 +81,6 @@ https://recipeapi2021.herokuapp.com/api/v1/users/9/recipes/10
 
 DELETE - Delete a recipe
 https://recipeapi2021.herokuapp.com/api/v1/users/9/recipes/10
+
+GET - All ingredients
+https://recipeapi2021.herokuapp.com/api/v1/ingredients
