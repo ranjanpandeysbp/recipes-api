@@ -1,3 +1,4 @@
+GET - Swagger docs
 https://recipeapi2021.herokuapp.com/v2/api-docs/
 
 GET - healtcheck
