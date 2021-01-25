@@ -30,6 +30,6 @@ public class RecipeControllerTestIT {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.recipes").exists())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.recipes[*].recipeId").isNotEmpty());
+                .andExpect(MockMvcResultMatchers.jsonPath("$.recipes[*].id").isNotEmpty());
     }
 }
