@@ -37,6 +37,8 @@ Response
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5qYW4ucGFuZGV5IiwiaWF0IjoxNjExNDg4Njk0LCJleHAiOjE2MTE0ODkyOTR9.VSE74FpWxx0qtz2HdlBSyZoyTQknYhGQNWifQOmmDX1aftcD9G611MT0JDS6RwqVLHJ_v2tjo8fEXILLHVAiOA"
 }
 
+Use Authorization header with Baerer token(returned after login) to access below API's
+Authorization Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5qYW4ucGFuZGV5IiwiaWF0IjoxNjExNDg4Njk0LCJleHAiOjE2MTE0ODkyOTR9.VSE74FpWxx0qtz2HdlBSyZoyTQknYhGQNWifQOmmDX1aftcD9G611MT0JDS6RwqVLHJ_v2tjo8fEXILLHVAiOA
 
 GET
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0

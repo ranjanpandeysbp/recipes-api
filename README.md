@@ -32,55 +32,56 @@ There are 3 ways to run this application:
 
 Option 1 - As standalone java application
 ---------
-1. Git clone and change to master branch by : git checkout master
+1. Git clone and change to master branch by : **git checkout master**
 2. Import into Intellij or Eclipse
 3. Right click on RecipeApiApplication and Run as Java Application
 
 Option 2 - As standalone jar
 ---------
-1. Git clone and change to master branch by : git checkout master
-2. Run mvn clean install from project root
-3. cd to target folder and run command : java -jar recipe-api-0.0.1-SNAPSHOT.jar
+1. Git clone and change to master branch by : **git checkout master**
+2. Run **mvn clean install** from project root
+3. cd to target folder and run command : **java -jar recipe-api-0.0.1-SNAPSHOT.jar**
 
 Option 3 -  As Docker container
 ---------
 1. Git clone and change to master branch by : git checkout master
 2. Run mvn clean install from project root
 3. Build the docker file from root directory with below command to generate the image
-     docker build -t recipe-api .
+     **docker build -t recipe-api .**
 4. Run the docker image with below command
-     docker run -p 8080:8080 recipe-api
+     **docker run -p 8080:8080 recipe-api**
 5. To stop running container, first get the container id with below command
-    docker ps -a
+    **docker ps -a**
     Than run below command
-    docker kill <Container Id>
+    **docker kill <Container Id>**
 
 Important Note: 
 ---------------
 1. By default the application will run in Dev profile with in memory DB.
 2. To run the application in Prod profile:
-   a.) Provide your DB details in application-prod.properties
-   b.) In application.properties replace this line spring.profiles.active=prod
+   a.) Provide your DB details in **application-prod.properties**
+   b.) In application.properties replace this line **spring.profiles.active=prod**
    
 How to access the application/api
 ----------------------------------
-After the application has successfully started, you can access the application healthcheck and swagger ddocs at below urls:
+After the application has successfully started, you can access the application healthcheck and swagger docs at below urls:
 1. Health check - http://localhost:8080/api/v1/auth/health
 2. Swagger docs - http://localhost:8080/v2/api-docs/
-Note: No authentication is required to access above urls
+
+**No authentication is required to access above urls**
 
 ##### Note: If you don't want to run the application in local than you can access the heroku hosted instance by following details mentioned below.
 
 Examples API request for various endpoints
 -------------------------------------------
 The project at root level contains 2 files
-1. sample-request.txt - Contains details of how to access various endpoints with example on local server
-2. heroku-sample-request.txt - Contains details of how to access various endpoints with example on hosted heroku server
+1. **sample-request.txt** - Contains details of how to access various endpoints with example on local server
+2. **heroku-sample-request.txt** - Contains details of how to access various endpoints with example on hosted heroku server
 
 Project Development Timeline
 -----------------------------
 The project was developed from scratch and hence you will see different branches in github 
 pertaining to the specific feature developed in the specific branch.
 
-project-guide.txt file at root of the project has steps of each and every functionality that was build in a particular branch.
+**project-guide.txt** file at root of the project has steps of each and every functionality that was build in a particular branch.
 
