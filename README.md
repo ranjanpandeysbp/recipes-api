@@ -3,7 +3,8 @@ Application provides API endpoints to carry out CRUD operations on recipe with a
 
 Hosted version can be found at below url
 -------------------------------------------
-https://recipeapi2021.herokuapp.com/api/v1/auth/health
+**Frontend App Live Url**: https://ranjanpandeysbp.github.io
+**Backend API Live Swagger Url**: https://recipeapi2021.herokuapp.com/v2/api-docs
 
 Technologies used:
 ------------------
