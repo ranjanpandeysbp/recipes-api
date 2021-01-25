@@ -1,12 +1,12 @@
 https://recipeapi2021.herokuapp.com/v2/api-docs/
 
-GET
+GET - healtcheck
 https://recipeapi2021.herokuapp.com/api/v1/auth/health
 
-GET
+GET - Get all ingredients
 https://recipeapi2021.herokuapp.com/api/v1/ingredients
 
-POST
+POST - Register new user
 https://recipeapi2021.herokuapp.com/api/v1/auth/register
 {
 	"username": "ranjan.pandey",
@@ -16,7 +16,7 @@ https://recipeapi2021.herokuapp.com/api/v1/auth/register
 	"phone": "0633638199"
 }
 
-POST
+POST - Login user
 https://recipeapi2021.herokuapp.com/api/v1/auth/login
 Request
 --------
@@ -40,7 +40,7 @@ Response
 Use Authorization header with Baerer token(returned after login) to access below API's
 Authorization Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5qYW4ucGFuZGV5IiwiaWF0IjoxNjExNDg4Njk0LCJleHAiOjE2MTE0ODkyOTR9.VSE74FpWxx0qtz2HdlBSyZoyTQknYhGQNWifQOmmDX1aftcD9G611MT0JDS6RwqVLHJ_v2tjo8fEXILLHVAiOA
 
-GET
+GET - Get all recipes
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0&sortOrder=ASC
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=noOfPeople
@@ -48,7 +48,7 @@ https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0&sortOrder=DESC
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=recipeName
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=recipeName
 
-POST
+POST - Create recipe
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes
 {
 	"dishType": "Vegetarian",
@@ -61,7 +61,7 @@ https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes
 	]
 }
 
-PUT
+PUT - Update recipe
 https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes
 {
 	"id": 12,
@@ -74,3 +74,9 @@ https://recipeapi2021.herokuapp.com/api/v1/users/1/recipes
 		{"id": 5}
 	]
 }
+
+GET - Get 1 recipe details
+https://recipeapi2021.herokuapp.com/api/v1/users/9/recipes/10
+
+DELETE - Delete a recipe
+https://recipeapi2021.herokuapp.com/api/v1/users/9/recipes/10

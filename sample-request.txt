@@ -1,8 +1,8 @@
 http://localhost:8080/v2/api-docs/
 http://localhost:8080/api/v1/auth/health
 
-POST
-localhost:8080/api/v1/auth/register
+POST - Register
+http://localhost:8080/api/v1/auth/register
 {
 	"username": "ranjan.pandey",
 	"email": "ranjan.pandey@gmail.com",
@@ -11,8 +11,8 @@ localhost:8080/api/v1/auth/register
 	"phone": "0633638199"
 }
 
-POST
-localhost:8080/api/v1/auth/login
+POST - Login
+http://localhost:8080/api/v1/auth/login
 Request
 --------
 {
@@ -35,16 +35,16 @@ Response
 Use Authorization header with Baerer token(returned after login) to access below API's
 Authorization Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5qYW4ucGFuZGV5IiwiaWF0IjoxNjExNDg4Njk0LCJleHAiOjE2MTE0ODkyOTR9.VSE74FpWxx0qtz2HdlBSyZoyTQknYhGQNWifQOmmDX1aftcD9G611MT0JDS6RwqVLHJ_v2tjo8fEXILLHVAiOA
 
-GET
-localhost:8080/api/v1/users/1/recipes?page=0
-localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC
-localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=noOfPeople
-localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=noOfPeople
-localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=recipeName
-localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=recipeName
+GET - Get all recipes
+http://localhost:8080/api/v1/users/1/recipes?page=0
+http://localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC
+http://localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=noOfPeople
+http://localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=noOfPeople
+http://localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=DESC&sortField=recipeName
+http://localhost:8080/api/v1/users/1/recipes?page=0&sortOrder=ASC&sortField=recipeName
 
-POST
-localhost:8080/api/v1/users/1/recipes
+POST - Create recipe
+http://localhost:8080/api/v1/users/1/recipes
 {
 	"dishType": "Vegetarian",
 	"recipeName": "Veg Biryani",
@@ -56,8 +56,8 @@ localhost:8080/api/v1/users/1/recipes
 	]
 }
 
-PUT
-localhost:8080/api/v1/users/1/recipes
+PUT - Update recipe
+http://localhost:8080/api/v1/users/1/recipes
 {
 	"id": 12,
 	"dishType": "Vegetarian new",
@@ -69,3 +69,9 @@ localhost:8080/api/v1/users/1/recipes
 		{"id": 5}
 	]
 }
+
+GET - Get 1 recipe details
+http://localhost:8080/api/v1/users/9/recipes/10
+
+DELETE - Delete a recipe
+http://localhost:8080/api/v1/users/9/recipes/10

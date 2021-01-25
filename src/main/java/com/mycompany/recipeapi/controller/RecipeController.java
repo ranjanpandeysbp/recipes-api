@@ -55,6 +55,22 @@ public class RecipeController {
 
     }
 
+    @GetMapping("/users/{userId}/recipes/{recipeId}")
+    public @ResponseBody ResponseEntity<RecipeEntity> getRecipeDetail(
+            @PathVariable("userId") Long userId,
+            @PathVariable("recipeId") Long recipeId){
+
+        LOGGER.debug("Entering RecipeController.getRecipeDetail");
+
+        Optional<RecipeEntity> recipe = recipeRepository.findByIdAndUserEntityId(recipeId, userId);
+        if (!recipe.isPresent()){
+            throw  new ResourceNotFoundException("No recipe found for recipe Id " + recipeId);
+        }
+        LOGGER.debug("Exiting RecipeController.getRecipeDetail");
+        return new ResponseEntity<RecipeEntity>(recipe.get(), HttpStatus.OK);
+
+    }
+
     @PostMapping("/users/{userId}/recipes")
     public @ResponseBody ResponseEntity<RecipeEntity> createRecipe(@RequestBody RecipeEntity recipe, @PathVariable("userId") Long userId){
 
