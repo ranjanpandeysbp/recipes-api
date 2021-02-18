@@ -17,6 +17,8 @@
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
+		<!--<dependency>
+			</dependency>-->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
