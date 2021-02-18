@@ -6,6 +6,7 @@ import com.mycompany.recipeapi.repository.RecipeRepository;
 import com.mycompany.recipeapi.repository.UserRepository;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -34,6 +35,7 @@ public class RecipeControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    //@Ignore
     @Test
     public void test_create_recipe(){
 
@@ -51,5 +53,13 @@ public class RecipeControllerTest {
 
         ResponseEntity<RecipeEntity> re = recipeController.createRecipe(recipeEntity, 1L);
         Assert.assertEquals(201, re.getStatusCodeValue());
+    }
+    
+    @Ignore
+    @Test
+    public void test_update_recipe(){
+    	
+    	RecipeEntity re = new RecipeEntity();
+    	recipeController.updateRecipe(re,10L);
     }
 }
