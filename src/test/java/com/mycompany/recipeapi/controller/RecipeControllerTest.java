@@ -60,6 +60,8 @@ public class RecipeControllerTest {
     public void test_update_recipe(){
     	
     	RecipeEntity re = new RecipeEntity();
+        
+    	RecipeEntity recipe = new RecipeEntity();
     	recipeController.updateRecipe(re,10L);
     }
 }
